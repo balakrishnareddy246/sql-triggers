@@ -1,0 +1,102 @@
+CREATE TABLE Students
+    -> (
+    -> StudentID int,
+    -> StudentName varchar(255),
+    -> ParentName varchar(255),
+    -> Address varchar(255),
+    -> PostalCode int,
+    -> City varchar(255)
+    -> );
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> show databases;
++----------------------+
+| Database             |
++----------------------+
+| database_balakrishna |
+| database_name        |
+| employee             |
+| hdfc                 |
+| hoteldatabase        |
+| information_schema   |
+| mysql                |
+| performance_schema   |
+| phpmyadmin           |
+| raman                |
+| student details      |
+| test                 |
+| userlogin            |
++----------------------+
+13 rows in set (0.001 sec)
+
+MariaDB [(none)]> create database Students;
+Query OK, 1 row affected (0.043 sec)
+
+MariaDB [(none)]> use Students;
+Database changed
+MariaDB [Students]> CREATE TABLE Students
+    -> (
+    -> StudentID int,
+    -> StudentName varchar(255),
+    -> ParentName varchar(255),
+    -> Address varchar(255),
+    -> PostalCode int,
+    -> City varchar(255)
+    -> );
+Query OK, 0 rows affected (0.740 sec)
+
+MariaDB [Students]> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [Students]> desc Students
+    -> ;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| StudentID   | int(11)      | YES  |     | NULL    |       |
+| StudentName | varchar(255) | YES  |     | NULL    |       |
+| ParentName  | varchar(255) | YES  |     | NULL    |       |
+| Address     | varchar(255) | YES  |     | NULL    |       |
+| PostalCode  | int(11)      | YES  |     | NULL    |       |
+| City        | varchar(255) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+6 rows in set (0.119 sec)
+
+MariaDB [Students]> desc employee;
+ERROR 1146 (42S02): Table 'students.employee' doesn't exist
+MariaDB [Students]> CREATE TABLE ExampleTable AS
+    -> SELECT Studentname, Parentname
+    -> FROM Students;
+Query OK, 0 rows affected (0.290 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Students]> desc Students;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| StudentID   | int(11)      | YES  |     | NULL    |       |
+| StudentName | varchar(255) | YES  |     | NULL    |       |
+| ParentName  | varchar(255) | YES  |     | NULL    |       |
+| Address     | varchar(255) | YES  |     | NULL    |       |
+| PostalCode  | int(11)      | YES  |     | NULL    |       |
+| City        | varchar(255) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+6 rows in set (0.064 sec)
+
+MariaDB [Students]> ALTER TABLE Students
+    -> ;
+Query OK, 0 rows affected (0.067 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Students]> ADD DateOFbirth date;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ADD DateOFbirth date' at line 1
+MariaDB [Students]> desc Students;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| StudentID   | int(11)      | YES  |     | NULL    |       |
+| StudentName | varchar(255) | YES  |     | NULL    |       |
+| ParentName  | varchar(255) | YES  |     | NULL    |       |
+| Address     | varchar(255) | YES  |     | NULL    |       |
+| PostalCode  | int(11)      | YES  |     | NULL    |       |
+| City        | varchar(255) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+6 rows in set (0.017 sec)
