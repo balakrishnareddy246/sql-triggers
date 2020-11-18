@@ -1,0 +1,424 @@
+oft Windows [Version 10.0.19041.630]
+(c) 2020 Microsoft Corporation. All rights reserved.
+
+C:\Users\dell>cd ..
+
+C:\Users>cd ..
+
+C:\>cd xampp\mysql\bin
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password: **************
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 69
+Server version: 10.4.14-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> CREATE TABLE Students
+    -> (
+    -> StudentID int,
+    -> StudentName varchar(255),
+    -> ParentName varchar(255),
+    -> Address varchar(255),
+    -> PostalCode int,
+    -> City varchar(255)
+    -> );
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> show databases;
++----------------------+
+| Database             |
++----------------------+
+| database_balakrishna |
+| database_name        |
+| employee             |
+| hdfc                 |
+| hoteldatabase        |
+| information_schema   |
+| mysql                |
+| performance_schema   |
+| phpmyadmin           |
+| raman                |
+| student details      |
+| test                 |
+| userlogin            |
++----------------------+
+13 rows in set (0.001 sec)
+
+MariaDB [(none)]> create database Students;
+Query OK, 1 row affected (0.043 sec)
+
+MariaDB [(none)]> use Students;
+Database changed
+MariaDB [Students]> CREATE TABLE Students
+    -> (
+    -> StudentID int,
+    -> StudentName varchar(255),
+    -> ParentName varchar(255),
+    -> Address varchar(255),
+    -> PostalCode int,
+    -> City varchar(255)
+    -> );
+Query OK, 0 rows affected (0.740 sec)
+
+MariaDB [Students]> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [Students]> desc Students
+    -> ;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| StudentID   | int(11)      | YES  |     | NULL    |       |
+| StudentName | varchar(255) | YES  |     | NULL    |       |
+| ParentName  | varchar(255) | YES  |     | NULL    |       |
+| Address     | varchar(255) | YES  |     | NULL    |       |
+| PostalCode  | int(11)      | YES  |     | NULL    |       |
+| City        | varchar(255) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+6 rows in set (0.119 sec)
+
+MariaDB [Students]> desc employee;
+ERROR 1146 (42S02): Table 'students.employee' doesn't exist
+MariaDB [Students]> CREATE TABLE ExampleTable AS
+    -> SELECT Studentname, Parentname
+    -> FROM Students;
+Query OK, 0 rows affected (0.290 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Students]> desc Students;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| StudentID   | int(11)      | YES  |     | NULL    |       |
+| StudentName | varchar(255) | YES  |     | NULL    |       |
+| ParentName  | varchar(255) | YES  |     | NULL    |       |
+| Address     | varchar(255) | YES  |     | NULL    |       |
+| PostalCode  | int(11)      | YES  |     | NULL    |       |
+| City        | varchar(255) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+6 rows in set (0.064 sec)
+
+MariaDB [Students]> ALTER TABLE Students
+    -> ;
+Query OK, 0 rows affected (0.067 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Students]> ADD DateOFbirth date;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ADD DateOFbirth date' at line 1
+MariaDB [Students]> desc Students;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| StudentID   | int(11)      | YES  |     | NULL    |       |
+| StudentName | varchar(255) | YES  |     | NULL    |       |
+| ParentName  | varchar(255) | YES  |     | NULL    |       |
+| Address     | varchar(255) | YES  |     | NULL    |       |
+| PostalCode  | int(11)      | YES  |     | NULL    |       |
+| City        | varchar(255) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+6 rows in set (0.017 sec)
+
+MariaDB [Students]> ADD DateOfBirth date;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ADD DateOfBirth date' at line 1
+MariaDB [Students]> DROP SCHEMA StudentsInfo;
+ERROR 1008 (HY000): Can't drop database 'studentsinfo'; database doesn't exist
+MariaDB [Students]> CREATE TABLE new_table_name AS
+    ->     SELECT column1, column2,...
+    ->     FROM existing_table_name
+    ->     WHERE ....;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '...
+    FROM existing_table_name
+    WHERE ....' at line 2
+MariaDB [Students]> CREATE TABLE new_table_name AS
+    ->     SELECT column1, column2,...
+    ->     FROM existing_table_name
+    ->     ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '...
+    FROM existing_table_name' at line 2
+MariaDB [Students]> CREATE TABLE ExampleTable AS
+    -> SELECT Studentname, Parentname
+    -> SELECT Studentname, Parentname
+    -> FROM Students;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELECT Studentname, Parentname
+FROM Students' at line 3
+MariaDB [Students]> FROM Students;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM Students' at line 1
+MariaDB [Students]> USE StudentsInfo;
+ERROR 1049 (42000): Unknown database 'studentsinfo'
+MariaDB [students]>
+MariaDB [students]> composer create-project laravel/laravel=5.8 crud --prefer-dist
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'composer create-project laravel/laravel=5.8 crud --prefer-dist' at line 1
+MariaDB [students]> Bye
+Ctrl-C -- exit!
+
+C:\xampp\mysql\bin>composer create-project laravel/laravel=5.8 crud --prefer-dist
+'composer' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password: ***************
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password: **************
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 75
+Server version: 10.4.14-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++----------------------+
+| Database             |
++----------------------+
+| database_balakrishna |
+| database_name        |
+| employee             |
+| hdfc                 |
+| hoteldatabase        |
+| information_schema   |
+| mysql                |
+| performance_schema   |
+| phpmyadmin           |
+| raman                |
+| student details      |
+| students             |
+| test                 |
+| userlogin            |
++----------------------+
+14 rows in set (0.049 sec)
+
+MariaDB [(none)]> create databse TEST;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'databse TEST' at line 1
+MariaDB [(none)]> CREATE DATABASE Test;
+ERROR 1007 (HY000): Can't create database 'test'; database exists
+MariaDB [(none)]> creae database test1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'creae database test1' at line 1
+MariaDB [(none)]> create database test123;
+Query OK, 1 row affected (0.066 sec)
+
+MariaDB [(none)]> show databases;
++----------------------+
+| Database             |
++----------------------+
+| database_balakrishna |
+| database_name        |
+| employee             |
+| hdfc                 |
+| hoteldatabase        |
+| information_schema   |
+| mysql                |
+| performance_schema   |
+| phpmyadmin           |
+| raman                |
+| student details      |
+| students             |
+| test                 |
+| test123              |
+| userlogin            |
++----------------------+
+15 rows in set (0.001 sec)
+
+MariaDB [(none)]> drop database test123;
+Query OK, 0 rows affected (0.596 sec)
+
+MariaDB [(none)]> show databases;
++----------------------+
+| Database             |
++----------------------+
+| database_balakrishna |
+| database_name        |
+| employee             |
+| hdfc                 |
+| hoteldatabase        |
+| information_schema   |
+| mysql                |
+| performance_schema   |
+| phpmyadmin           |
+| raman                |
+| student details      |
+| students             |
+| test                 |
+| userlogin            |
++----------------------+
+14 rows in set (0.001 sec)
+
+MariaDB [(none)]> create database football_club;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> drop football;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'football' at line 1
+MariaDB [(none)]> drop databse football;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'databse football' at line 1
+MariaDB [(none)]> drop database football_club;
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [(none)]> show databse;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'databse' at line 1
+MariaDB [(none)]> show databases;
++----------------------+
+| Database             |
++----------------------+
+| database_balakrishna |
+| database_name        |
+| employee             |
+| hdfc                 |
+| hoteldatabase        |
+| information_schema   |
+| mysql                |
+| performance_schema   |
+| phpmyadmin           |
+| raman                |
+| student details      |
+| students             |
+| test                 |
+| userlogin            |
++----------------------+
+14 rows in set (0.001 sec)
+
+MariaDB [(none)]> create database Football_club;
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [(none)]> show databases;
++----------------------+
+| Database             |
++----------------------+
+| database_balakrishna |
+| database_name        |
+| employee             |
+| football_club        |
+| hdfc                 |
+| hoteldatabase        |
+| information_schema   |
+| mysql                |
+| performance_schema   |
+| phpmyadmin           |
+| raman                |
+| student details      |
+| students             |
+| test                 |
+| userlogin            |
++----------------------+
+15 rows in set (0.001 sec)
+
+
+MariaDB [(none)]> drop database userlogin;
+Query OK, 0 rows affected (0.019 sec)
+
+
+MariaDB [(none)]> drop database test;
+Query OK, 2 rows affected (2.282 sec)
+
+MariaDB [(none)]> use Football_club;
+Database changed
+MariaDB [Football_club]> SHOW tables;
+Empty set (0.001 sec)
+
+
+MariaDB [Football_club]> SHOW tables;
+Empty set (0.001 sec)
+
+
+MariaDB [Football_club]> CREATE TABLE English_Premier_League (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, club_name VARCHAR(20),City VARCHAR(20),Stadium_Capacity VARCHAR(20),Year_of_Foundation CHAR(4));
+Query OK, 0 rows affected (0.522 sec)
+
+MariaDB [Football_club]> show tables;
++-------------------------+
+| Tables_in_football_club |
++-------------------------+
+| english_premier_league  |
++-------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [Football_club]> describe english_premier_league;
++--------------------+-------------+------+-----+---------+----------------+
+| Field              | Type        | Null | Key | Default | Extra          |
++--------------------+-------------+------+-----+---------+----------------+
+| id                 | int(11)     | NO   | PRI | NULL    | auto_increment |
+| club_name          | varchar(20) | YES  |     | NULL    |                |
+| City               | varchar(20) | YES  |     | NULL    |                |
+| Stadium_Capacity   | varchar(20) | YES  |     | NULL    |                |
+| Year_of_Foundation | char(4)     | YES  |     | NULL    |                |
++--------------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.199 sec)
+
+
+Query OK, 1 row affected (0.108 sec)
+
+MariaDB [Football_club]> SELECT * FROM English_Premier_League;
++----+-----------+--------+------------------+--------------------+
+| id | club_name | City   | Stadium_Capacity | Year_of_Foundation |
++----+-----------+--------+------------------+--------------------+
+|  1 | Arsenal   | London | 60260            | 1886               |
++----+-----------+--------+------------------+--------------------+
+1 row in set (0.000 sec)
+
+
+MariaDB [Football_club]> UPDATE English_Premier_League
+    ->
+    -> SET
+    ->
+    -> Stadium_Capacity = '60000'
+    ->
+    -> WHERE club_name = 'Chelsea';
+Query OK, 0 rows affected (0.001 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+MariaDB [Football_club]> ALTER TABLE English_Premier_League ADD nickname VARCHAR(30);
+Query OK, 0 rows affected (0.330 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Football_club]> ALTER TABLE English_Premier_League DROP nickname;
+Query OK, 0 rows affected (0.174 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Football_club]> SELECT * FROM English_Premier_League;
++----+-----------+--------+------------------+--------------------+
+| id | club_name | City   | Stadium_Capacity | Year_of_Foundation |
++----+-----------+--------+------------------+--------------------+
+|  1 | Arsenal   | London | 60260            | 1886               |
++----+-----------+--------+------------------+--------------------+
+1 row in set (0.001 sec)
+
+
+VALUES (NULL, "Sundre...' at line 5
+MariaDB [Football_club]> VALUES (NULL, "Sundreaiajaj", "SuperMan","75257","585542");
++------+--------------+----------+-------+--------+
+| NULL | Sundreaiajaj | SuperMan | 75257 | 585542 |
++------+--------------+----------+-------+--------+
+| NULL | Sundreaiajaj | SuperMan | 75257 | 585542 |
++------+--------------+----------+-------+--------+
+1 row in set (0.000 sec)
+
+MariaDB [Football_club]> show tables;
++-------------------------+
+| Tables_in_football_club |
++-------------------------+
+| english_premier_league  |
++-------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [Football_club]> SELECT * FROM English_Premier_League WHERE club_name='Liverpool' OR club_name= 'Chelsea';
+Empty set (0.000 sec)
+
+MariaDB [Football_club]> SELECT * FROM English_Premier_League WHERE club_name='Liverpool';
+Empty set (0.000 sec)
+
+MariaDB [Football_club]> ALTER TABLE English_Premier_League ADD nickname VARCHAR(30) AFTER club_name;
+Query OK, 0 rows affected (0.137 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Football_club]> SELECT * FROM English_Premier_League;
++----+-----------+----------+--------+------------------+--------------------+
+| id | club_name | nickname | City   | Stadium_Capacity | Year_of_Foundation |
++----+-----------+----------+--------+------------------+--------------------+
+|  1 | Arsenal   | NULL     | London | 60260            | 1886               |
++----+-----------+----------+--------+------------------+--------------------+
+1 row in set (0.039 sec)
+
+MariaDB [Football_club]>
