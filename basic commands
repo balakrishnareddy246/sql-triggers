@@ -1,0 +1,280 @@
+
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password: **************
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 11
+Server version: 10.4.14-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create databse balakrishnareddy
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'databse balakrishnareddy' at line 1
+MariaDB [(none)]>
+MariaDB [(none)]> show databsases
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'databsases' at line 1
+MariaDB [(none)]> show databases;
++----------------------+
+| Database             |
++----------------------+
+| database_balakrishna |
+| database_name        |
+| employee             |
+| football_club        |
+| hdfc                 |
+| hoteldatabase        |
+| information_schema   |
+| mysql                |
+| performance_schema   |
+| phpmyadmin           |
+| raman                |
+| student details      |
+| students             |
+| test1                |
+| test2                |
++----------------------+
+15 rows in set (0.105 sec)
+
+MariaDB [(none)]> desc students
+    -> ;
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> desc students;
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> desc test1;
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> describe student;
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> CREATE DATABASE Test;
+Query OK, 1 row affected (0.036 sec)
+
+MariaDB [(none)]> show databses;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'databses' at line 1
+MariaDB [(none)]> show databases;
++----------------------+
+| Database             |
++----------------------+
+| database_balakrishna |
+| database_name        |
+| employee             |
+| football_club        |
+| hdfc                 |
+| hoteldatabase        |
+| information_schema   |
+| mysql                |
+| performance_schema   |
+| phpmyadmin           |
+| raman                |
+| student details      |
+| students             |
+| test                 |
+| test1                |
+| test2                |
++----------------------+
+16 rows in set (0.001 sec)
+
+MariaDB [(none)]> DROP databse_balakrishna;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'databse_balakrishna' at line 1
+MariaDB [(none)]> DROP DATABSE raman;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DATABSE raman' at line 1
+MariaDB [(none)]> delete database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'database' at line 1
+MariaDB [(none)]> DROP DATABSE raman;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DATABSE raman' at line 1
+MariaDB [(none)]> DROP DATABSE raman;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DATABSE raman' at line 1
+MariaDB [(none)]> CREATE DATABASE db1;
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [(none)]> CREATE OR REPLACEDB1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'REPLACEDB1' at line 1
+MariaDB [(none)]> CREATE OR REPLACE db1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'db1' at line 1
+MariaDB [(none)]> SHOW WARNINGS;
++-------+------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Level | Code | Message                                                                                                                                                 |
++-------+------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Error | 1064 | You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'db1' at line 1 |
++-------+------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.039 sec)
+
+MariaDB [(none)]> CREATE DATABASE bookstore;
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [(none)]> USE bookstore;
+Database changed
+MariaDB [bookstore]> CREATE TABLE books (
+    -> isbn CHAR(20) PRIMARY KEY,
+    -> title VARCHAR(50),
+    -> AUTHOR_ID int,
+    -> AUTHOR_ID INT,
+    -> publisher_id INT,
+    -> year_pub CHAR(4),
+    -> description REXT );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 8
+MariaDB [bookstore]> CREATE TABLE books (
+    -> isbn CHAR(20) PRIMARY KEY,
+    -> title VARCHAR(50),
+    -> author_id INT,
+    -> publisher_id INT,
+    -> year_pub CHAR(4),
+    -> description TEXT );
+Query OK, 0 rows affected (0.607 sec)
+
+MariaDB [bookstore]> DESCRIBE books;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| isbn         | char(20)    | NO   | PRI | NULL    |       |
+| title        | varchar(50) | YES  |     | NULL    |       |
+| author_id    | int(11)     | YES  |     | NULL    |       |
+| publisher_id | int(11)     | YES  |     | NULL    |       |
+| year_pub     | char(4)     | YES  |     | NULL    |       |
+| description  | text        | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+6 rows in set (0.118 sec)
+
+MariaDB [bookstore]> CREATE TABEL authors
+    -> (author_id INT AUTO_INCREMENT PRIMARY KEY,
+    -> name_last VARCHAR(50),
+    -> name_first VARCHAR(50),
+    -> country VARCHAR(50) );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'TABEL authors
+(author_id INT AUTO_INCREMENT PRIMARY KEY,
+name_last VARCHAR(5...' at line 1
+MariaDB [bookstore]> Bye
+Ctrl-C -- exit!
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password: **************
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password: ***************
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password: **************
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 14
+Server version: 10.4.14-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use bookstore;
+Database changed
+MariaDB [bookstore]> CREATE TABLE authors
+    -> (author_id INT AUTO_INCREMENT PRIMARY KEY,
+    -> name_last VARCHAR(50),
+    -> name_first VARCHAR(50),
+    -> country VARCHAR(50) );
+Query OK, 0 rows affected (0.172 sec)
+
+MariaDB [bookstore]> INSERT INTO authors
+    -> (name_last, name_first, country)
+    -> VALUES('Kafka', 'Franz', 'Czech Republic');
+Query OK, 1 row affected (0.215 sec)
+
+MariaDB [bookstore]> INSERT INTO books
+    -> (title, author_id, isbn, year_pub)
+    -> VALUES('The Castle', '1', '0805211063', '1998');
+Query OK, 1 row affected (0.050 sec)
+
+MariaDB [bookstore]> INSERT INTO books
+    -> (title, author_id, isbn, year_pub)
+    -> VALUES('The Trial', '1', '0805210407', '1995'),
+    -> ('The Metamorphosis', '1', '0553213695', '1995'),
+    -> ('America', '1', '0805210644', '1995');
+Query OK, 3 rows affected (0.053 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [bookstore]> SELECT title
+    -> FROM books;
++-------------------+
+| title             |
++-------------------+
+| The Metamorphosis |
+| The Trial         |
+| America           |
+| The Castle        |
++-------------------+
+4 rows in set (0.026 sec)
+
+MariaDB [bookstore]> SELECT title
+    -> FROM books
+    -> LIMIT 5;
++-------------------+
+| title             |
++-------------------+
+| The Metamorphosis |
+| The Trial         |
+| America           |
+| The Castle        |
++-------------------+
+4 rows in set (0.000 sec)
+
+MariaDB [bookstore]> SELECT title, name_last
+    -> FROM books
+    -> JOIN authors USING (author_id);
++-------------------+-----------+
+| title             | name_last |
++-------------------+-----------+
+| The Metamorphosis | Kafka     |
+| The Trial         | Kafka     |
+| America           | Kafka     |
+| The Castle        | Kafka     |
++-------------------+-----------+
+4 rows in set (0.074 sec)
+
+MariaDB [bookstore]> SELECT title AS 'Kafka Books'
+    -> FROM books
+    -> JOIN authors USING (author_id)
+    -> WHERE name_last = 'Kafka';
++-------------------+
+| Kafka Books       |
++-------------------+
+| The Metamorphosis |
+| The Trial         |
+| America           |
+| The Castle        |
++-------------------+
+4 rows in set (0.039 sec)
+
+MariaDB [bookstore]>
+MariaDB [bookstore]> UPDATE books
+    -> SET title = 'Amerika'
+    -> WHERE isbn = '0805210644';
+Query OK, 1 row affected (0.062 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [bookstore]> Bye
+Ctrl-C -- exit!
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password: *************
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password: **************
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 16
+Server version: 10.4.14-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use database;
+ERROR 1049 (42000): Unknown database 'database'
+MariaDB [(none)]> use bookstore;
+Database changed
+MariaDB [bookstore]> DELETE FROM books
+    -> WHERE author_id = '2034';
+Query OK, 0 rows affected (0.018 sec)
+
+MariaDB [bookstore]>
